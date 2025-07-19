@@ -21,16 +21,22 @@ public class LongestSubArrayWithKSum {
         // brute force approach
         int longest = 0;
         for(int i=0; i<n; i++){
+            int sum = 0;
             for(int j=i; j<n; j++){
-                int sum = 0;
-                for(int z=i; z<=j;z++){
-                    sum += nums[z];
-                }
+//                int sum = 0;
+//                for(int z=i; z<=j;z++){
+//                    sum += nums[z];
+//                }
+
+                // complexity reduced from n3 to n2
+                sum += nums[j];
                 if(sum == k){
                     longest = Math.max(longest,j-i+1);
                 }
             }
         }
         return longest;
+
+
     }
 }
